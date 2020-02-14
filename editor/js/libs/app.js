@@ -6,8 +6,10 @@
 var APP = {
 
 	Player: function () {
-
-		var renderer = new THREE.WebGLRenderer( { antialias: true } );
+		// TODO: improve
+		var canvas = document.createElement( 'canvas' );
+		var gl = canvas.getContext( 'webgl2', { antialias: false, xrCompatible: true } );
+		var renderer = new THREE.WebGLRenderer( { canvas: canvas, context: gl } );
 		renderer.setPixelRatio( window.devicePixelRatio );
 		renderer.outputEncoding = THREE.sRGBEncoding;
 
